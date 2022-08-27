@@ -8,11 +8,18 @@ class Solution:
         rows = list()
         columns = list()
         for i in range(m):
-            for j in range(n):
-                if matrix[i][j] == 0:
-                    rows.append(i)
-                    columns.append(j)
+            rows.append(0)
+        for i in range(n):
+            columns.append(0)
+        i = 0
+        j = 0
         for i in range(m):
             for j in range(n):
-                if i in rows or j in columns:
+                if matrix[i][j] == 0:
+                    rows[i] = 1
+                    columns[j] = 1
+        for i in range(m):
+            for j in range(n):
+                if rows[i] == 1 or columns[j] == 1:
                     matrix[i][j] = 0
+                
